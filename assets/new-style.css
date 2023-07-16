@@ -76,3 +76,42 @@ p.pricing-menu {
 .contact-us-section .contact-content .contact-parah {
     font-size: 15px !important;
 }
+
+@media screen and (max-width: 1199px) {
+    .join-us {
+        background: var(--e-global-color-btn-red) !important;
+        line-height: 16px;
+        color: var(--e-global-color-white) !important;
+        padding: 18px 40px 17px 33px !important;
+        display: inline-block;
+        border-radius: 3px;
+        font-weight: 600;
+        text-decoration: none;
+        text-align: center;
+    }
+    .join-us-box {
+        display: inline-block;
+    }
+    .illuminati-img {
+        margin: 0 !important;
+        height: 200px !important;
+        width: 200px !important;
+        margin-bottom: 40px !important;
+    }
+    .banner-paragraph {
+        font-size: 20px;
+    }
+    .artificial-text {
+        font-size: 17px;
+    }
+    .icons-rounded-box {
+        margin-left: 0px !important;
+    }
+    #IlluminatiPeople {
+        width: inherit !important;
+    }
+    #IlluminatiPeople>img {
+        width: 350px !important;
+        height: 350px !important;
+    }
+}
