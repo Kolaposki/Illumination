@@ -115,3 +115,8 @@ p.pricing-menu {
         height: 350px !important;
     }
 }
+
+#success-message {
+    color: #198754;
+    display: none;
+}

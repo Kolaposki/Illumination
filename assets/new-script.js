@@ -43,6 +43,8 @@ setInterval(function() {
 
 
 const joinForm = document.getElementById("joinForm");
+const textJoinForm = document.getElementById("textJoinForm");
+const successMessage = document.getElementById("success-message");
 
 if (joinForm) {
     joinForm.addEventListener("submit", function(e) {
@@ -55,6 +57,12 @@ if (joinForm) {
             object[key] = value;
         });
         var json = JSON.stringify(object);
+
+        // Hide the form
+        joinForm.style.display = "none";
+        textJoinForm.style.display = "none";
+        successMessage.style.display = "block";
+
         fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 headers: {
@@ -77,6 +85,12 @@ if (joinForm) {
             .then(function() {
                 joinForm.reset();
                 // $(".preloader").fadeOut(1000); // set duration in milliseconds
+                // Show the form again after 10 seconds
+                setTimeout(() => {
+                    joinForm.style.display = "block";
+                    textJoinForm.style.display = "block";
+                    successMessage.style.display = "none";
+                }, 5000);
             });
     });
 }
