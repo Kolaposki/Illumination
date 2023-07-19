@@ -116,7 +116,9 @@ p.pricing-menu {
     }
 }
 
-#success-message {
+#success-message,
+#successfulPayment,
+#successfulPaymentDesc {
     color: #198754;
     display: none;
 }

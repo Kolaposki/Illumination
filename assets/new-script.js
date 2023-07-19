@@ -46,6 +46,13 @@ const joinForm = document.getElementById("joinForm");
 const textJoinForm = document.getElementById("textJoinForm");
 const successMessage = document.getElementById("success-message");
 
+const buyTicket = document.getElementById("buyTicket");
+const buyTicketDesc = document.getElementById("buyTicketDesc");
+
+const paymentContainer = document.getElementById("paymentContainer");
+const successfulPayment = document.getElementById("successfulPayment");
+const successfulPaymentDesc = document.getElementById("successfulPaymentDesc");
+
 if (joinForm) {
     joinForm.addEventListener("submit", function(e) {
         // $(".preloader").fadeIn(1000);
@@ -85,7 +92,7 @@ if (joinForm) {
             .then(function() {
                 joinForm.reset();
                 // $(".preloader").fadeOut(1000); // set duration in milliseconds
-                // Show the form again after 10 seconds
+                // Show the form again after 5 seconds
                 setTimeout(() => {
                     joinForm.style.display = "block";
                     textJoinForm.style.display = "block";
@@ -108,6 +115,14 @@ if (paymentForm) {
         });
         var json = JSON.stringify(object);
         console.log(json);
+
+        paymentContainer.style.display = "none";
+        buyTicket.style.display = "none";
+        buyTicketDesc.style.display = "none";
+
+        successfulPayment.style.display = "block";
+        successfulPaymentDesc.style.display = "block";
+
         fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 headers: {
@@ -129,7 +144,17 @@ if (paymentForm) {
             })
             .then(function() {
                 paymentForm.reset();
-                // $(".preloader").fadeOut(1000); // set duration in milliseconds
+
+                // Show the form again after 5 seconds
+                setTimeout(() => {
+                    paymentContainer.style.display = "block";
+                    buyTicket.style.display = "block";
+                    buyTicketDesc.style.display = "block";
+
+                    successfulPaymentDesc.style.display = "none";
+                    successfulPayment.style.display = "none";
+                }, 5000);
+
             });
     });
 }
